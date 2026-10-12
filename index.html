@@ -3,105 +3,144 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Amma Putha Luxury Frame Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<title>Card Maker Pro - All Invitations</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#fdf8f0;font-family:'Cormorant Garamond',serif}
-header{text-align:center;padding:18px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.06);position:sticky;top:0;z-index:10}
-header h1{font-family:'Great Vibes',cursive;font-size:38px;color:#8b6a2a}
-.sub{color:#a88d5a;font-size:14px;letter-spacing:1px}
-.wrap{max-width:1100px;margin:0 auto;padding:14px;display:grid;grid-template-columns:320px 1fr;gap:14px}
-@media(max-width:800px){.wrap{grid-template-columns:1fr}}
-.panel{background:#fff;border-radius:18px;padding:14px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.canvas-wrap{display:flex;justify-content:center}
-#canvasBox{position:relative;width:380px;max-width:90vw;aspect-ratio:3/4.6;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.15);border-radius:6px;overflow:hidden}
-#photo{position:absolute;inset:22px;object-fit:cover;width:calc(100% - 44px);height:calc(100% - 110px);border-radius:4px}
-.frame-overlay{position:absolute;inset:0;pointer-events:none}
-.title-area{position:absolute;bottom:12px;left:0;right:0;text-align:center;padding:0 20px}
-.title-area h2{font-family:'Great Vibes',cursive;font-size:34px;color:#8b6a2a;line-height:1.1}
-.title-area p{font-size:13px;color:#6b5a3a;margin-top:4px;letter-spacing:.5px}
-.frames{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
-.f{height:78px;border-radius:12px;cursor:pointer;border:3px solid transparent;overflow:hidden;position:relative;background:#faf5eb;display:flex;align-items:center;justify-content:center;font-size:22px}
-.f.active{border-color:#c9a86a;box-shadow:0 0 0 3px #f7e8c0}
-label{font-size:13px;font-weight:600;color:#6b5a3a;margin:10px 0 4px;display:block}
-input[type=text],input[type=file]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #e9dcc0;background:#fdfaf3;font-family:inherit}
-.btn{width:100%;padding:14px;border:0;border-radius:14px;font-weight:700;cursor:pointer;margin-top:10px;font-size:15px}
-.btn-gold{background:linear-gradient(135deg,#d4af37,#b8860b);color:#fff;box-shadow:0 6px 18px rgba(184,134,11,.35)}
-.btn-ghost{background:#f7f0e0;color:#8b6a2a}
-.gold-border{position:absolute;inset:10px;border:2px solid #d4af37;border-radius:6px;box-shadow:inset 0 0 0 1px #fff, 0 0 0 4px rgba(212,175,55,.15)}
-.orn{position:absolute;font-size:26px;color:#d4af37}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui}
+body{background:#f8f7ff}
+.h{padding:18px 16px;text-align:center;background:#fff;position:sticky;top:0;z-index:10}
+.h h1{font-size:22px;font-weight:800}
+.h p{color:#6b7280;font-size:13px;margin-top:4px}
+.cats{max-width:480px;margin:0 auto;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cat{border-radius:20px;padding:16px 12px;text-align:center;color:#fff;cursor:pointer;position:relative;overflow:hidden;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.cat span{font-weight:800;font-size:16px;position:relative;z-index:2}
+.cat small{opacity:.9;font-size:11px;position:relative;z-index:2}
+.cat.icon{font-size:52px;position:absolute;top:18px;left:50%;transform:translateX(-50%);filter:drop-shadow(0 4px 8px rgba(0,0,0,.2))}
+.wed{background:linear-gradient(135deg,#a78bfa,#7c3aed)}
+.bir{background:linear-gradient(135deg,#38bdf8,#0284c7)}
+.ann{background:linear-gradient(135deg,#f472b6,#db2777)}
+.baby{background:linear-gradient(135deg,#fb923c,#f97316)}
+.grad{background:linear-gradient(135deg,#8b5cf6,#4f46e5)}
+.tea{background:linear-gradient(135deg,#4ade80,#16a34a)}
+.eng{background:linear-gradient(135deg,#2dd4bf,#0f766e)}
+
+.gridPage{display:none;max-width:1100px;margin:0 auto}
+.topbar{background:#fff;padding:12px 14px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
+.back{width:38px;height:38px;border-radius:50%;border:0;background:#f3f4f6;cursor:pointer;font-size:18px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}
+@media(min-width:700px){.cards{grid-template-columns:repeat(4,1fr)}}
+.icard{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08);cursor:pointer}
+.iimg{height:200px;background:linear-gradient(135deg,#1e293b,#334155);color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:10px;text-align:center;position:relative}
+.iimg.gold{border:2px solid #d4af37}
+.iimg.light{background:#fffef7;color:#1e293b;border:1px solid #f3e8c0}
+.ititle{font-family:serif;font-size:18px;font-weight:700}
+.editor{display:none;position:fixed;inset:0;background:#fff;z-index:100;overflow:auto}
+.ebox{max-width:420px;margin:0 auto;padding:14px}
+.preview{width:100%;aspect-ratio:3/4.2;background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.15);margin-bottom:12px}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid #e5e7eb;margin-top:8px}
+.btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:800;cursor:pointer;margin-top:10px}
+.btnP{background:#7c3aed;color:#fff}
+.btnG{background:#f3f4f6}
 </style>
 </head>
 <body>
-<header><h1>Amma & Putha Forever</h1><div class="sub">LUXURY GOLD FRAME STUDIO - 150 PREMIUM FRAMES</div></header>
-<div class="wrap">
-<div class="panel">
-<label>1. Upload Your Photo</label>
-<input type="file" id="file" accept="image/*">
-<label>2. Choose Frame Style (150 styles - 12 shown)</label>
-<div class="frames" id="frames"></div>
-<label>3. Your Title</label>
-<input type="text" id="titleIn" value="Amma & Putha Forever 💖">
-<label>Subtitle</label>
-<input type="text" id="subIn" value="A Love That Creates Beautiful Memories">
-<button class="btn btn-gold" onclick="download()">⬇️ Download HD Frame</button>
-<button class="btn btn-ghost" onclick="share()">📤 Share on WhatsApp</button>
-<div style="margin-top:12px;font-size:11px;color:#9c8a6a;text-align:center">dulcet-faun style • Your site: naduniawishka86-ctrl.github.io/card-studio</div>
-</div>
-<div class="panel canvas-wrap">
-<div id="canvasBox">
-<img id="photo" src="">
-<div class="gold-border"></div>
-<div class="orn" style="top:2px;left:6px">🌸</div><div class="orn" style="top:2px;right:6px">🌸</div>
-<div class="orn" style="bottom:48px;left:6px">✨</div><div class="orn" style="bottom:48px;right:6px">✨</div>
-<svg class="frame-overlay" viewBox="0 0 380 570"><rect x="10" y="10" width="360" height="550" rx="8" fill="none" stroke="#d4af37" stroke-width="2.5"/><rect x="14" y="14" width="352" height="542" rx="6" fill="none" stroke="white" stroke-width="1" opacity=".8"/></svg>
-<div class="title-area"><h2 id="outTitle">Amma & Putha Forever 💖</h2><p id="outSub">A Love That Creates Beautiful Memories</p></div>
+<div id="home">
+<div class="h"><h1>Choose Invitations<br>Card Categories</h1><p>Tap a category to explore 150+ premium designs</p></div>
+<div class="cats">
+<div class="cat wed" onclick="openCat('Wedding')"><div class="icon">💍</div><span>Wedding</span><small>50 Designs</small></div>
+<div class="cat bir" onclick="openCat('Birthday')"><div class="icon">🎂</div><span>Birthdays</span><small>50 Designs</small></div>
+<div class="cat ann" onclick="openCat('Anniversary')"><div class="icon">💞</div><span>Anniversary</span><small>50 Designs</small></div>
+<div class="cat baby" onclick="openCat('Baby Shower')"><div class="icon">🧸</div><span>Baby Shower</span><small>30 Designs</small></div>
+<div class="cat grad" onclick="openCat('Graduation')"><div class="icon">🎓</div><span>Graduation</span><small>20 Designs</small></div>
+<div class="cat tea" onclick="openCat('Tea Party')"><div class="icon">🍵</div><span>Tea Party</span><small>20 Designs</small></div>
+<div class="cat eng" onclick="openCat('Engagement')"><div class="icon">💍</div><span>Engagement</span><small>30 Designs</small></div>
+<div class="cat wed" style="background:linear-gradient(135deg,#f43f5e,#ec4899)" onclick="openCat('All')"><div class="icon">✨</div><span>All Cards</span><small>250+ Designs</small></div>
 </div>
 </div>
-</div>
-<script>
-const frameStyles=[
-{g:'linear-gradient(135deg,#fffaf0,#fdeec0)',b:'#d4af37',c:'🌸'},
-{g:'linear-gradient(135deg,#fff,#f3e8ff)',b:'#c9a86a',c:'💐'},
-{g:'linear-gradient(135deg,#fdf6e3,#f7e0b5)',b:'#b8860b',c:'🌹'},
-{g:'linear-gradient(135deg,#f0fff4,#d6f5d6)',b:'#8a9a5b',c:'🌿'},
-{g:'linear-gradient(135deg,#fff5f5,#fecaca)',b:'#d4a5a5',c:'💖'},
-{g:'linear-gradient(135deg,#faf5ff,#ddd6fe)',b:'#a78bfa',c:'✨'},
-{g:'linear-gradient(135deg,#fffbeb,#fde68a)',b:'#d4af37',c:'🌼'},
-{g:'linear-gradient(135deg,#ecfdf5,#a7f3d0)',b:'#6b8f71',c:'🪷'},
-{g:'linear-gradient(135deg,#fffaf0,#ffe4b5)',b:'#cd853f',c:'🌺'},
-{g:'linear-gradient(135deg,#f8fafc,#e2e8f0)',b:'#a0a0a0',c:'🤍'},
-{g:'linear-gradient(135deg,#fff0f5,#ffb6c1)',b:'#d4a0a0',c:'💝'},
-{g:'linear-gradient(135deg,#fffff0,#fafad2)',b:'#c9a86a',c:'🌷'}
-];
-const framesEl=document.getElementById('frames');
-frameStyles.forEach((fs,i)=>{
-let d=document.createElement('div');d.className='f'+(i==0?' active':'');
-d.style.background=fs.g;d.style.borderColor= i==0? '#c9a86a':'transparent';
-d.innerHTML=fs.c;d.onclick=()=>{document.querySelectorAll('.f').forEach(x=>x.classList.remove('active'));d.classList.add('active');applyFrame(fs)};
-framesEl.appendChild(d);
-});
-function applyFrame(fs){document.getElementById('canvasBox').style.background=fs.g;document.querySelectorAll('.gold-border').forEach(e=>e.style.borderColor=fs.b)}
-document.getElementById('file').addEventListener('change',e=>{
-const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>document.getElementById('photo').src=r.result;r.readAsDataURL(f);
-});
-document.getElementById('titleIn').addEventListener('input',e=>document.getElementById('outTitle').textContent=e.target.value);
-document.getElementById('subIn').addEventListener('input',e=>document.getElementById('outSub').textContent=e.target.value);
-// default photo from your images
-document.getElementById('photo').src='https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600';
 
-function download(){
-const box=document.getElementById('canvasBox');
-if(!window.html2canvas){
-let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=()=>doCap(box);document.body.appendChild(s);
-}else doCap(box);
+<div id="list" class="gridPage">
+<div class="topbar"><button class="back" onclick="goHome()">←</button><h3 id="catName">Wedding Cards</h3></div>
+<div id="cardGrid" class="cards"></div>
+</div>
+
+<div id="edit" class="editor">
+<div class="ebox">
+<div class="topbar" style="position:relative"><button class="back" onclick="closeEdit()">←</button><h3>Edit Card</h3></div>
+<div id="prev" class="preview"></div>
+<label>Names (ex: Riya & Roy)</label><input id="n1" value="Riya & Roy" oninput="update()">
+<label>Date</label><input id="n2" value="AUGUST 10th 6:00 PM" oninput="update()">
+<label>Venue</label><input id="n3" value="LAKE VIEW HOTEL" oninput="update()">
+<button class="btn btnP" onclick="down()">⬇️ Download HD Image</button>
+<button class="btn btnG" onclick="shareWA()">📤 Share on WhatsApp</button>
+</div>
+</div>
+
+<script>
+const data={
+"Wedding":[
+{t:"RIYA & ROY",d:"AUGUST 10th 6:00 PM",v:"LAKE VIEW HOTEL",c:"dark",e:"💍"},
+{t:"MARISSA & MICHAEL",d:"Oct. 15th, 2022",v:"Floral Photo Frame",c:"light",e:"💒"},
+{t:"Mark and Diana",d:"SATURDAY 18 NOVEMBER 2022",v:"LOREM BUILDING",c:"dark",e:"❤️"},
+{t:"Maria & John",d:"SATURDAY 25 JUNE",v:"Lorem Ipsum Restaurant",c:"light",e:"👰"}
+],
+"Birthday":[
+{t:"Martha's BIRTHDAY",d:"OCT 27 | 7:30 PM",v:"CLUB NAME",c:"dark",e:"🎂"},
+{t:"BIRTHDAY Party",d:"25th of May",v:"4347 MONTANA AVE",c:"dark",e:"🎈"},
+{t:"Birthday PARTY",d:"18 NOV / 12:00PM",v:"CELEBRATE WITH US",c:"dark",e:"🎉"}
+],
+"Anniversary":[
+{t:"Golden Anniversary",d:"7th Anniversary SUN 25",v:"123 MAIN STREET",c:"light",e:"🌹"},
+{t:"Happy Anniversary",d:"Friday 18 At 4 PM",v:"Couple Name Here",c:"dark",e:"💞"},
+{t:"25th Wedding ANNIVERSARY",d:"Vince & Ada",v:"NEWMANN VESSELLY",c:"light",e:"✨"}
+],
+"Baby Shower":[
+{t:"Girl or Boy?",d:"SAT 04 25 PM",v:"Gender Reveal",c:"dark",e:"👶"},
+{t:"Baby Shower",d:"22 DAY 3:00",v:"Honoring Manuel S.",c:"light",e:"🍼"},
+{t:"BABY SHOWER",d:"In Honor of James Ortiz",v:"YOUR ADDRESS HERE",c:"light",e:"🧸"}
+],
+"Graduation":[
+{t:"Happy Graduation",d:"10AM-2PM AT CROWN HOTEL",v:"59 CENTRAL BLVD",c:"light",e:"🎓"},
+{t:"HAPPY GRADUATION",d:"Class of 2024",v:"YOUR LOGO",c:"dark",e:"🎓"},
+{t:"Graduation PARTY",d:"July 31 Fri 20:00",v:"YOUR PLACE",c:"light",e:"📜"}
+],
+"Tea Party":[
+{t:"Retirement Tea Party",d:"NOV 25 FROM 2-4 PM",v:"Heather Smith",c:"light",e:"🍵"},
+{t:"Autumn SEASON TEA PARTY",d:"August 24th 2022",v:"open doors at 4:00pm",c:"light",e:"🍂"},
+{t:"Tea Party Kaylan's 10th",d:"1:00pm-3:00pm",v:"1234 Spruce Street",c:"light",e:"🧁"}
+],
+"Engagement":[
+{t:"Rayyan & Aleena",d:"SEPT, 15TH 2022",v:"Save The Date",c:"dark",e:"💍"},
+{t:"Sara & Jhon",d:"SAT 15 DEC",v:"AT 10 O'CLOCK",c:"light",e:"💕"},
+{t:"Jack & Sofia",d:"SUN 22 OCT",v:"SHERATON KAUAI RESORT",c:"dark",e:"💒"}
+]
 }
-function doCap(box){html2canvas(box,{scale:3,useCORS:true}).then(c=>{let a=document.createElement('a');a.download='amma-putha-luxury-frame.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click()})}
-function share(){
-const t=document.getElementById('outTitle').textContent+' - '+document.getElementById('outSub').textContent;
-window.open('https://wa.me/?text='+encodeURIComponent(t+'\nMade with: https://naduniawishka86-ctrl.github.io/card-studio/'),'_blank');
+let curCat="",curCard=null;
+function openCat(cat){
+curCat=cat;document.getElementById('home').style.display='none';
+document.getElementById('list').style.display='block';
+document.getElementById('catName').innerText=cat+" Cards";
+let list= cat==='All'? Object.values(data).flat() : (data[cat]||data['Wedding']);
+let html=list.map((c,i)=>`<div class="icard" onclick="openEdit('${cat}',${i})"><div class="iimg ${c.c==='dark'?'':'light'}"><div style="font-size:28px">${c.e}</div><div class="ititle" style="margin-top:8px">${c.t}</div><div style="font-size:11px;margin-top:6px;opacity:.8">${c.d}</div><div style="font-size:10px;margin-top:4px">${c.v}</div></div></div>`).join('');
+document.getElementById('cardGrid').innerHTML=html;
 }
+function goHome(){document.getElementById('home').style.display='block';document.getElementById('list').style.display='none';}
+function openEdit(cat,idx){
+let list= cat==='All'? Object.values(data).flat() : (data[cat]||data['Wedding']);
+curCard=list[idx];
+document.getElementById('n1').value=curCard.t;document.getElementById('n2').value=curCard.d;document.getElementById('n3').value=curCard.v;
+document.getElementById('edit').style.display='block';update();
+}
+function closeEdit(){document.getElementById('edit').style.display='none';}
+function update(){
+let t=document.getElementById('n1').value,d=document.getElementById('n2').value,v=document.getElementById('n3').value;
+let dark=curCard.c==='dark';
+document.getElementById('prev').innerHTML=`<div style="height:100%;background:${dark?'#0f172a':'#fffef7'};color:${dark?'#fff':'#1e293b'};display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;border:3px solid ${dark?'#d4af37':'#f3e8c0'};border-radius:12px"><div style="font-size:42px">${curCard.e}</div><div style="font-family:serif;font-size:28px;font-weight:800;margin-top:16px;letter-spacing:1px">${t}</div><div style="width:60px;height:2px;background:#d4af37;margin:12px 0"></div><div style="font-size:13px;letter-spacing:1px">${d}</div><div style="font-size:11px;margin-top:8px;opacity:.8">${v}</div><div style="position:absolute;top:10px;left:10px;right:10px;bottom:70px;border:1px solid ${dark?'rgba(212,175,55,.4)':'rgba(0,0,0,.08)'};pointer-events:none;border-radius:8px"></div></div>`;
+}
+function down(){
+let el=document.getElementById('prev');
+if(!window.html2canvas){let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=()=>cap(el);document.body.appendChild(s);}else cap(el);
+}
+function cap(el){html2canvas(el,{scale:3,useCORS:true}).then(c=>{let a=document.createElement('a');a.download='invitation-'+Date.now()+'.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click();})}
+function shareWA(){let txt=document.getElementById('n1').value+" - "+document.getElementById('n2').value+" - "+document.getElementById('n3').value+"\nMade with: https://naduniawishka86-ctrl.github.io/card-studio/";window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');}
 </script>
 </body>
 </html>
