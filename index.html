@@ -1,2 +1,107 @@
 
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Card Studio Pro - 150 Cards</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui;background:#f6f3ff;min-height:100vh}header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #eee;padding:12px 16px;text-align:center}.tabs{display:flex;gap:8px;justify-content:center;margin:12px 0;flex-wrap:wrap}.tab{border:0;padding:10px 18px;border-radius:999px;font-weight:600;cursor:pointer;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.1)}.tab.active{background:#7c3aed;color:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;padding:16px;max-width:1100px;margin:0 auto}.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);cursor:pointer}.card-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,#ede9fe,#fce7f3)}.card-body{padding:10px}.card-title{font-size:13px;font-weight:600;min-height:36px}.badge{display:inline-block;margin-top:6px;font-size:11px;background:#f3f0ff;color:#6d28d9;padding:3px 8px;border-radius:999px}.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}.modal.open{display:flex}.modal-box{background:#fff;border-radius:20px;max-width:420px;width:100%;overflow:hidden}.modal-img{height:220px;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,#ddd6fe,#fbcfe8)}.modal-body{padding:16px}.btns{display:flex;gap:8px;margin-top:12px}.btn{flex:1;padding:12px;border-radius:12px;border:0;font-weight:700;cursor:pointer}.btn-primary{background:#7c3aed;color:#fff}.btn-ghost{background:#f3f4f6}</style></head><body><header><div style="font-size:22px">💌 Card Studio Pro - 150 Cards</div><div class="tabs"><button class="tab active" data-cat="Wedding">Wedding 50</button><button class="tab" data-cat="Birthday">Birthday 50</button><button class="tab" data-cat="Anniversary">Anniversary 50</button></div></header><div id="grid" class="grid"></div><div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="modal-box"><div id="mImg" class="modal-img"></div><div class="modal-body"><h3 id="mTitle"></h3><p id="mText" style="margin-top:8px;color:#4b5563"></p><div class="btns"><button class="btn btn-ghost" onclick="closeModal()">Close</button><button class="btn btn-primary" onclick="shareCard()">Share / Copy</button></div></div></div></div><script>const emojis={Wedding:["💍","💒","👰","🤵","💐","🥂","❤️","💕"],Birthday:["🎂","🎉","🎁","🎈","🥳","🍰","🎊","💝"],Anniversary:["💞","❤️","🌹","💑","💏","🥰","💖","✨"]};const templates={Wedding:["Two souls, one heart - Happy Wedding Day!","Wishing you a lifetime of love and happiness","May your love story be as magical as today","Together is a beautiful place to be","Cheers to love, laughter and happily ever after"],Birthday:["Happy Birthday! Make a wish!","Wishing you joy, love and cake!","Another year wiser, another year fabulous","May your day be filled with surprises","Celebrate big, you deserve it!"],Anniversary:["Happy Anniversary to my favorite couple","One year down, forever to go","Love grows more beautiful every year","Cheers to your amazing journey together","Still falling for you every day"]};function makeCards(){let all=[];["Wedding","Birthday","Anniversary"].forEach(cat=>{for(let i=1;i<=50;i++){let t=templates[cat][(i-1)%templates[cat].length];let e=emojis[cat][i%emojis[cat].length];all.push({id:cat+"-"+i,cat,title:cat+" Card #"+i,text:t,emoji:e})}});return all}const CARDS=makeCards();let active="Wedding";let selected=null;function render(){const grid=document.getElementById('grid');const filtered=CARDS.filter(c=>c.cat===active);grid.innerHTML=filtered.map(c=>`<div class="card" onclick="openModal('${c.id}')"><div class="card-img">${c.emoji}</div><div class="card-body"><div class="card-title">${c.text}</div><span class="badge">${c.cat} #${c.id.split('-')[1]}</span></div></div>`).join('')}function openModal(id){selected=CARDS.find(c=>c.id===id);document.getElementById('mImg').textContent=selected.emoji;document.getElementById('mTitle').textContent=selected.title;document.getElementById('mText').textContent=selected.text;document.getElementById('modal').classList.add('open')}function closeModal(){document.getElementById('modal').classList.remove('open')}function shareCard(){if(!selected)return;const txt=selected.title+"\n\n"+selected.text+"\n\nMade with Card Studio Pro";if(navigator.share){navigator.share({title:selected.title,text:txt})}else{navigator.clipboard.writeText(txt);alert('Copied!')}}document.querySelectorAll('.tab').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.cat;render()})});render();</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amma Putha Luxury Frame Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fdf8f0;font-family:'Cormorant Garamond',serif}
+header{text-align:center;padding:18px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.06);position:sticky;top:0;z-index:10}
+header h1{font-family:'Great Vibes',cursive;font-size:38px;color:#8b6a2a}
+.sub{color:#a88d5a;font-size:14px;letter-spacing:1px}
+.wrap{max-width:1100px;margin:0 auto;padding:14px;display:grid;grid-template-columns:320px 1fr;gap:14px}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}}
+.panel{background:#fff;border-radius:18px;padding:14px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.canvas-wrap{display:flex;justify-content:center}
+#canvasBox{position:relative;width:380px;max-width:90vw;aspect-ratio:3/4.6;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.15);border-radius:6px;overflow:hidden}
+#photo{position:absolute;inset:22px;object-fit:cover;width:calc(100% - 44px);height:calc(100% - 110px);border-radius:4px}
+.frame-overlay{position:absolute;inset:0;pointer-events:none}
+.title-area{position:absolute;bottom:12px;left:0;right:0;text-align:center;padding:0 20px}
+.title-area h2{font-family:'Great Vibes',cursive;font-size:34px;color:#8b6a2a;line-height:1.1}
+.title-area p{font-size:13px;color:#6b5a3a;margin-top:4px;letter-spacing:.5px}
+.frames{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.f{height:78px;border-radius:12px;cursor:pointer;border:3px solid transparent;overflow:hidden;position:relative;background:#faf5eb;display:flex;align-items:center;justify-content:center;font-size:22px}
+.f.active{border-color:#c9a86a;box-shadow:0 0 0 3px #f7e8c0}
+label{font-size:13px;font-weight:600;color:#6b5a3a;margin:10px 0 4px;display:block}
+input[type=text],input[type=file]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #e9dcc0;background:#fdfaf3;font-family:inherit}
+.btn{width:100%;padding:14px;border:0;border-radius:14px;font-weight:700;cursor:pointer;margin-top:10px;font-size:15px}
+.btn-gold{background:linear-gradient(135deg,#d4af37,#b8860b);color:#fff;box-shadow:0 6px 18px rgba(184,134,11,.35)}
+.btn-ghost{background:#f7f0e0;color:#8b6a2a}
+.gold-border{position:absolute;inset:10px;border:2px solid #d4af37;border-radius:6px;box-shadow:inset 0 0 0 1px #fff, 0 0 0 4px rgba(212,175,55,.15)}
+.orn{position:absolute;font-size:26px;color:#d4af37}
+</style>
+</head>
+<body>
+<header><h1>Amma & Putha Forever</h1><div class="sub">LUXURY GOLD FRAME STUDIO - 150 PREMIUM FRAMES</div></header>
+<div class="wrap">
+<div class="panel">
+<label>1. Upload Your Photo</label>
+<input type="file" id="file" accept="image/*">
+<label>2. Choose Frame Style (150 styles - 12 shown)</label>
+<div class="frames" id="frames"></div>
+<label>3. Your Title</label>
+<input type="text" id="titleIn" value="Amma & Putha Forever 💖">
+<label>Subtitle</label>
+<input type="text" id="subIn" value="A Love That Creates Beautiful Memories">
+<button class="btn btn-gold" onclick="download()">⬇️ Download HD Frame</button>
+<button class="btn btn-ghost" onclick="share()">📤 Share on WhatsApp</button>
+<div style="margin-top:12px;font-size:11px;color:#9c8a6a;text-align:center">dulcet-faun style • Your site: naduniawishka86-ctrl.github.io/card-studio</div>
+</div>
+<div class="panel canvas-wrap">
+<div id="canvasBox">
+<img id="photo" src="">
+<div class="gold-border"></div>
+<div class="orn" style="top:2px;left:6px">🌸</div><div class="orn" style="top:2px;right:6px">🌸</div>
+<div class="orn" style="bottom:48px;left:6px">✨</div><div class="orn" style="bottom:48px;right:6px">✨</div>
+<svg class="frame-overlay" viewBox="0 0 380 570"><rect x="10" y="10" width="360" height="550" rx="8" fill="none" stroke="#d4af37" stroke-width="2.5"/><rect x="14" y="14" width="352" height="542" rx="6" fill="none" stroke="white" stroke-width="1" opacity=".8"/></svg>
+<div class="title-area"><h2 id="outTitle">Amma & Putha Forever 💖</h2><p id="outSub">A Love That Creates Beautiful Memories</p></div>
+</div>
+</div>
+</div>
+<script>
+const frameStyles=[
+{g:'linear-gradient(135deg,#fffaf0,#fdeec0)',b:'#d4af37',c:'🌸'},
+{g:'linear-gradient(135deg,#fff,#f3e8ff)',b:'#c9a86a',c:'💐'},
+{g:'linear-gradient(135deg,#fdf6e3,#f7e0b5)',b:'#b8860b',c:'🌹'},
+{g:'linear-gradient(135deg,#f0fff4,#d6f5d6)',b:'#8a9a5b',c:'🌿'},
+{g:'linear-gradient(135deg,#fff5f5,#fecaca)',b:'#d4a5a5',c:'💖'},
+{g:'linear-gradient(135deg,#faf5ff,#ddd6fe)',b:'#a78bfa',c:'✨'},
+{g:'linear-gradient(135deg,#fffbeb,#fde68a)',b:'#d4af37',c:'🌼'},
+{g:'linear-gradient(135deg,#ecfdf5,#a7f3d0)',b:'#6b8f71',c:'🪷'},
+{g:'linear-gradient(135deg,#fffaf0,#ffe4b5)',b:'#cd853f',c:'🌺'},
+{g:'linear-gradient(135deg,#f8fafc,#e2e8f0)',b:'#a0a0a0',c:'🤍'},
+{g:'linear-gradient(135deg,#fff0f5,#ffb6c1)',b:'#d4a0a0',c:'💝'},
+{g:'linear-gradient(135deg,#fffff0,#fafad2)',b:'#c9a86a',c:'🌷'}
+];
+const framesEl=document.getElementById('frames');
+frameStyles.forEach((fs,i)=>{
+let d=document.createElement('div');d.className='f'+(i==0?' active':'');
+d.style.background=fs.g;d.style.borderColor= i==0? '#c9a86a':'transparent';
+d.innerHTML=fs.c;d.onclick=()=>{document.querySelectorAll('.f').forEach(x=>x.classList.remove('active'));d.classList.add('active');applyFrame(fs)};
+framesEl.appendChild(d);
+});
+function applyFrame(fs){document.getElementById('canvasBox').style.background=fs.g;document.querySelectorAll('.gold-border').forEach(e=>e.style.borderColor=fs.b)}
+document.getElementById('file').addEventListener('change',e=>{
+const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>document.getElementById('photo').src=r.result;r.readAsDataURL(f);
+});
+document.getElementById('titleIn').addEventListener('input',e=>document.getElementById('outTitle').textContent=e.target.value);
+document.getElementById('subIn').addEventListener('input',e=>document.getElementById('outSub').textContent=e.target.value);
+// default photo from your images
+document.getElementById('photo').src='https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600';
+
+function download(){
+const box=document.getElementById('canvasBox');
+if(!window.html2canvas){
+let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=()=>doCap(box);document.body.appendChild(s);
+}else doCap(box);
+}
+function doCap(box){html2canvas(box,{scale:3,useCORS:true}).then(c=>{let a=document.createElement('a');a.download='amma-putha-luxury-frame.jpg';a.href=c.toDataURL('image/jpeg',0.95);a.click()})}
+function share(){
+const t=document.getElementById('outTitle').textContent+' - '+document.getElementById('outSub').textContent;
+window.open('https://wa.me/?text='+encodeURIComponent(t+'\nMade with: https://naduniawishka86-ctrl.github.io/card-studio/'),'_blank');
+}
+</script>
+</body>
+</html>
